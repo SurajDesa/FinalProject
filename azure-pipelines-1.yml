@@ -24,7 +24,7 @@ steps:
    npm install
    npx playwright install
    npx playwright test --project=chromium
-   displayName: "Executing PlayWrightTest"
+  displayName: "Executing PlayWrightTest"
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
