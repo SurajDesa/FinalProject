@@ -29,7 +29,7 @@ steps:
   displayName: 'Playwright'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
+    command: 'build'
     projects: './src/DALIntegrationTests/DALIntegrationTests.csproj'
   displayName: 'DALIntegration'
 - task: DotNetCoreCLI@2
