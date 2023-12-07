@@ -28,14 +28,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-- script: |
-    pwsh bin/Debug/net6.0/playwright.ps1 install
-  displayName: 'Install Playwright Browsers'
-# - script: |
-#     dotnet tool install --global Microsoft.Playwright.CLI
-#     playwright install
-#   displayName: 'Install Playwright Browsers'
+    
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
