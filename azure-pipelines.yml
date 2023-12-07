@@ -44,7 +44,7 @@ steps:
   displayName: 'MachineSpecification'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
+    command: 'build'
     projects: './src/Mocking/Mocking.csproj'
   displayName: 'Mocking'
 - task: DotNetCoreCLI@2
