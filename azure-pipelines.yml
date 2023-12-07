@@ -16,6 +16,10 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+- powershell: |
+   dotnet tool install --global Microsoft.Playwright.CLI
+   playwright install
+  displayName: 'Install Playwright'
 
 - task: NuGetCommand@2
   inputs:
