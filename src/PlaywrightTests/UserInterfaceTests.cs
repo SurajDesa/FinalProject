@@ -8,36 +8,42 @@
 namespace PlaywrightTests;
 
 public class UserInterfaceTests
+
 {
     //https://medium.com/version-1/playwright-a-modern-end-to-end-testing-for-web-app-with-c-language-support-c55e931273ee#:~
     [Fact]
     public static async Task VerifyGoogleSearchForPlaywright()
     {
         using IPlaywright playwright = await Playwright.CreateAsync();
-        await using var browser =
+        await using var browser = 
             await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions() { Headless = false, SlowMo = 50 });
 
         IBrowserContext context = await browser.NewContextAsync();
 
-        IPage page = await context.NewPageAsync();
-        //Navigate to Google.com
-        await page.GotoAsync("https://www.google.com");
-        IReadOnlyList<IFrame> f = page.Frames;
-        if (f.Count > 1)
+        // Function to perform login test
+        async Task TestLogin(string username, string password)
         {
-            await f[1].ClickAsync("text=No thanks");
+            IPage page = await context.NewPageAsync();
+            // Navigate to letsusedata login page
+            await page.GotoAsync("https://www.letsusedata.com/index.html");
+
+            // Fill in the username and password
+            await page.FillAsync("#txtUser", username);
+            await page.FillAsync("#txtPassword", password);
+
+            // Click on the login button
+            await page.ClickAsync("button:has-text('Login')");
+
+            // Add logic to verify successful login, e.g., checking for a specific element that appears after login
+            // Example: Assert.True(await page.IsVisibleAsync("selector-for-element-visible-after-login"));
+
+            await page.CloseAsync();
         }
-        // Search Playwright
-        await page.FillAsync("[aria-label=\"Search\"]", "Playwright");
-        // Press Enter
-        var response = await page.RunAndWaitForNavigationAsync(async () => await page.PressAsync("[aria-label=\"Search\"]", "Enter"));
-        //Click on the first search option
-        await page.ClickAsync("xpath=//h3[contains(text(),'Playwright: Fast and reliable end-to-end testing')]");
-        //Verify Page URL
-        Assert.Equal("https://playwright.dev/", page.Url);
-        // Click text=Get started
-        await page.ClickAsync("text=Get Started");
-        //Verify Page URL
-        Assert.Equal("https://playwright.dev/docs/intro", page.Url);
+
+        // Test login for Test1
+        await TestLogin("Test1", "12345678");
+
+        // Test login for Test2
+        await TestLogin("Test2", "iF3sBF7c");
     }
 }
