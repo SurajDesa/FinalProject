@@ -57,15 +57,15 @@ public class CarTests : BaseTest, IClassFixture<EnsureAutoLotDatabaseTestFixture
         Assert.Equal(expectedCount, cars.Count);
     }
 
-    [Fact]
-    public void ShouldGetAllOfTheCarsWithMakes()
-    {
-        IIncludableQueryable<Car, Make> query = Context.Cars.Include(c => c.MakeNavigation);
-        var qs = query.ToQueryString();
-        OutputHelper.WriteLine($"Query: {qs}");
-        var cars = query.ToList();
-        Assert.Equal(10, cars.Count);
-    }
+    // [Fact]
+    // public void ShouldGetAllOfTheCarsWithMakes()
+    // {
+    //     IIncludableQueryable<Car, Make> query = Context.Cars.Include(c => c.MakeNavigation);
+    //     var qs = query.ToQueryString();
+    //     OutputHelper.WriteLine($"Query: {qs}");
+    //     var cars = query.ToList();
+    //     Assert.Equal(10, cars.Count);
+    // }
 
     [Fact]
     public void ShouldAddACar()

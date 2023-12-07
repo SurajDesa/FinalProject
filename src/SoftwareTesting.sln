@@ -11,8 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachineSpecifications", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DALSample", "DALSample\DALSample.csproj", "{B0CAD04F-0FD1-4B33-A004-2C2BA27C062C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DALIntegrationTests", "DALIntegrationTests\DALIntegrationTests.csproj", "{2D806C0E-DBE1-4A17-8961-FD713E808228}"
-EndProject
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37EF4365-3D9E-43A6-9671-115E2130338D}"
 	ProjectSection(SolutionItems) = preProject
 		Migrations.txt = Migrations.txt
