@@ -12,7 +12,7 @@ public class UserInterfaceTests
 {
     //https://medium.com/version-1/playwright-a-modern-end-to-end-testing-for-web-app-with-c-language-support-c55e931273ee#:~
     [Fact]
-    public async Task VerifyGoogleSearchForPlaywright()
+    public static async Task VerifyGoogleSearchForPlaywright()
     {
         using IPlaywright playwright = await Playwright.CreateAsync();
         await using var browser = 
@@ -21,7 +21,7 @@ public class UserInterfaceTests
         IBrowserContext context = await browser.NewContextAsync();
 
         // Function to perform login test
-        async Task TestLogin(string username, string password)
+        async Task TestLoginAsync(string username, string password)
         {
             IPage page = await context.NewPageAsync();
             // Navigate to letsusedata login page
