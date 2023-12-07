@@ -20,9 +20,35 @@ steps:
   inputs:
     command: 'test'
     projects: './src/XUnitExamples/XUnitExamples.csproj'
+  displayName: 'XUnirExamples'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: './src/Playwright/Playwright.csproj'
-
+  displayName: 'Playwright'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './src/DALIntegrationTests/DALIntegrationTests.csproj'
+  displayName: 'DALIntegration'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './src/DALSample/DALSample.csproj'
+  displayName: 'DALSample'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './src/MachineSpecifications/MachineSpecifications.csproj'
+  displayName: 'MachineSpecification'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './src/Mocking/Mocking.csproj'
+  displayName: 'Mocking'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: './src/PlaywrightTests/PlaywrightTests.csproj'
+  displayName: 'PlaywrightTests'
