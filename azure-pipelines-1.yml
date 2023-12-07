@@ -19,12 +19,25 @@ steps:
 - script: dotnet build ./src/SoftwareTesting.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: |
-   cd src/PlaywrightTests
-   npm install
-   npx playwright install
-   npx playwright test --project=chromium
-  displayName: "Executing PlayWrightTest"
+# - script: |
+#    cd src/PlaywrightTests
+#    npm install
+#    npx playwright install
+#    npx playwright test --project=chromium
+#   displayName: "Executing PlayWrightTest"
+
+- task: DotNetCoreCLI@2
+  displayName: Install Playwright CLI
+  inputs:
+    command: custom
+    custom: 'tool '
+    arguments: install Microsoft.Playwright.CLI
+- task: DotNetCoreCLI@2
+  displayName: 'Build test project'
+  inputs:
+    command: 'build'
+    projects: 'src/PlaywrightTests/PlaywrightTests.csproj'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
