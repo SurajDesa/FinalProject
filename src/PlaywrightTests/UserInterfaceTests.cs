@@ -41,9 +41,9 @@ public class UserInterfaceTests
         }
 
         // Test login for Test1
-        await TestLogin("Test1", "12345678");
+        await TestLoginAsync("Test1", "12345678");
 
         // Test login for Test2
-        await TestLogin("Test2", "iF3sBF7c");
+        await TestLoginAsync("Test2", "iF3sBF7c");
     }
 }
