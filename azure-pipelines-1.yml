@@ -19,6 +19,12 @@ steps:
 - script: dotnet build ./src/SoftwareTesting.sln --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
+- script: |
+   cd src/PlaywrightTests
+   npm install
+   npx playwright install
+   npx playwright test --project=chromium
+   displayName: "Executing PlayWrightTest"
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
@@ -28,6 +34,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+    
     
 - task: VSBuild@1
   inputs:
