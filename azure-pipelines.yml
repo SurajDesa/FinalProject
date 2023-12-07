@@ -20,7 +20,7 @@ steps:
   inputs:
     command: 'test'
     projects: './src/XUnitExamples/XUnitExamples.csproj'
-  displayName: 'XUnirExamples'
+  displayName: 'XUnitExamples'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -49,6 +49,6 @@ steps:
   displayName: 'Mocking'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
+    command: 'build'
     projects: './src/PlaywrightTests/PlaywrightTests.csproj'
   displayName: 'PlaywrightTests'
