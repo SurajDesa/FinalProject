@@ -28,11 +28,10 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-    
+
 - script: |
-    echo "Listing contents of the current directory:"
-    dir
-  displayName: 'List directory contents'
+    pwsh bin/Debug/net6.0/playwright.ps1 install
+  displayName: 'Install Playwright Browsers'
 # - script: |
 #     dotnet tool install --global Microsoft.Playwright.CLI
 #     playwright install
