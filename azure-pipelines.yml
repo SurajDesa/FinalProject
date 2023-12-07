@@ -49,6 +49,6 @@ steps:
   displayName: 'Mocking'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'test'
+    command: 'build'
     projects: './src/PlaywrightTests/PlaywrightTests.csproj'
   displayName: 'PlaywrightTests'
