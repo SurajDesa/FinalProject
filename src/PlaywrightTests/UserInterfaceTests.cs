@@ -12,7 +12,7 @@ public class UserInterfaceTests
 {
     //https://medium.com/version-1/playwright-a-modern-end-to-end-testing-for-web-app-with-c-language-support-c55e931273ee#:~
     [Fact]
-    public static async Task VerifyGoogleSearchForPlaywright()
+    public async Task VerifyGoogleSearchForPlaywright()
     {
         using IPlaywright playwright = await Playwright.CreateAsync();
         await using var browser = 
